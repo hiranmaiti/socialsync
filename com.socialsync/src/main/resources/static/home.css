@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #f3f8ff;
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 6px;
+}
+
+#caption {
+  width: 100%;
+  display: flex;
+  height: fit-content;
+  padding: 10px;
+  gap: 5px;
+}
+
+#post-img {
+  max-width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  max-height: fit-content;
+  border-radius: 6px;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+}
+
+.like-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 30px;
+  
+}
+
+.like-button i {
+  color: #555;
+}
+
+.like-button:hover i {
+  color: #007bff;
+}
+
+.comment-form {
+  width: 100%;
+  padding: 10px;
+}
+
+input[type="text"] {
+  width: 80%;
+  margin: auto;
+  margin-left: 20px;
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #f3f8ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  resize: vertical;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border: 1px solid #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+input[type="text"]::placeholder {
+  color: #888;
+  font-style: italic;
+  opacity: 0.7;
+}
+input[type="text"]:hover {
+  border-color: #999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+  padding: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #f3f8ff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: fit-content;
+  margin: auto;
+  margin-left: 5px;
+  background-color: #49108b;
+}
+
+input[type="submit"]:hover {
+  background-color: #e26ee5;
+  color: #f3f8ff;
+}
+
+.comment-section {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    height: fit-content;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+.fa-comment {
+    font-size: 30px;
+    color: #555;
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.post-actions span {
+  margin-top: 15px;
+  font-size: 25px;
+}

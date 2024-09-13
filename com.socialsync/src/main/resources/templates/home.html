@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/2a09458275.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>SocailSync</title>
+    <link rel="stylesheet" type="text/css" th:href="@{navbar.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{home.css}" />
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <a href="/home">SocialSync</a>
+        </div>
+        <div class="tabs">
+          <a href="/homePage">News Feed</a>
+          <a href="/createPost">Create Post</a>
+          <a href="/homePage" id="profile-icon"><i class="fa-regular fa-user"></i></a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+    <div class="main">
+      <div class="post-container" th:each="post : ${allPosts}">
+        <div class="post-content">
+          <div id="caption">
+            <p>
+              <label>Caption:</label> <span th:text="${post.caption}"></span>
+            </p>
+          </div>
+          <div id="post-img">
+            <img
+            th:if="${post.photoBase64}"
+            th:src="'data:image/jpeg;base64,' + ${post.photoBase64}"
+            alt="Post Photo"
+          />
+          </div>
+        </div>
+        <div class="post-actions">
+          <form action="/likePost">
+            <input type="hidden" name="id" th:value="${post.id}" />
+            <button class="like-button">
+                <i class="fa-regular fa-thumbs-up"></i>
+              </button>
+          </form>
+          <span class="like-count" th:text="${post.likes}"></span>
+        </div>
+        <div class="comment-form">
+          <form action="/commentPost" method="post">
+            <input type="hidden" name="postId" th:value="${post.id}" />
+            <input type="text" name="commentText" placeholder="Add a comment..."></input>
+            <input type="submit" value="Post" />
+          </form>
+        </div>
+        <div class="comment-section">
+          <i class="fa-regular fa-comment"></i>
+          <div th:if="${post.comments != null}">
+            <div th:each="comment : ${post.comments}">
+              <p>
+                <span th:text="${comment}"></span>
+              </p>
+            </div>
+          </div>
+          <div th:if="${post.comments == null}">
+            <p>No comments yet</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SocialSync</title>
+    <script
+      src="https://kit.fontawesome.com/2a09458275.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" type="text/css" th:href="@{navbar.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{createPost.css}" />
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <div class="logo">
+          <a href="/home">SocialSync</a>
+        </div>
+        <div class="tabs">
+          <a href="/homePage">News Feed</a>
+          <a href="/createPost">Create Post</a>
+          <a href="/homePage" id="profile-icon"><i class="fa-regular fa-user"></i></a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <form action="/createPost" enctype="multipart/form-data" method="post">
+        <div class="post" id="caption-div">
+          <textarea
+            name="caption"
+            id="caption"
+            class="caption"
+            placeholder="Write your caption here"
+          ></textarea>
+        </div>
+        <div class="post">
+          <label for=""> Upload your image</label>
+          <input
+            type="file"
+            name="photo"
+            accept="image/*"
+            class="photo"
+            id="photo"
+          />
+        </div>
+        <div class="post">
+          <input type="submit" value="Post" class="post-btn" id="post-btn" />
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

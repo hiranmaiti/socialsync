@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Social Media</title>
+<link rel="stylesheet" type="text/css" th:href="@{style.css}" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="form-container sign-up">
+			<form action="/signUp" method="post">
+				<h1>Create Account</h1>
+				<div class="social-icons">
+					<a href="#" class="icon"><i class="fa-brands fa-google"></i></a> <a
+						href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+					<a href="#" class="icon"><i class="fa-brands fa-youtube"></i></a> <a
+						href="#" class="icon"><i class="fa-brands fa-x-twitter"></i></a>
+				</div>
+				<span>or use your email for register</span> <input type="text"
+					placeholder="Username" name="username" required /> <input
+					type="text" placeholder="Full Name" name="name" required /> <input
+					type="email" placeholder="Email" name="email" required /> <input
+					type="password" placeholder="Password" name="password" required />
+				<button>Sign Up</button>
+			</form>
+		</div>
+
+		<div class="form-container sign-in">
+			<form action="/login" method="post">
+				<h1>Sign In</h1>
+				<div class="social-icons">
+					<a href="#" class="icon"><i class="fa-brands fa-google"></i></a> <a
+						href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+					<a href="#" class="icon"><i class="fa-brands fa-youtube"></i></a> <a
+						href="#" class="icon"><i class="fa-brands fa-x-twitter"></i></a>
+				</div>
+				<span>or use your email and password</span> <input type="text"
+					placeholder="Username" name="username" required /> <input
+					type="password" placeholder="Password" name="password" required />
+				<a href="#">Forgot Password?</a>
+				<button>Sign In</button>
+			</form>
+		</div>
+
+		<div class="toggle-container">
+			<div class="toggle">
+				<div class="toggle-panel toggle-left">
+					<h1>Welcome Back!</h1>
+					<p>Enter your details to get started.</p>
+					<button class="hidden" id="login">Sign In</button>
+				</div>
+
+				<div class="toggle-panel toggle-right">
+					<h1>Welcome to SocialSync!</h1>
+					<p>Register with your personal details to get started.</p>
+					<button class="hidden" id="register">Sign Up</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="popup" class="popup" th:if="${msg}">
+			<p th:text="${msg}"></p>
+		</div>
+		<div class="overlay" th:if="${msg}"></div>
+
+	</div>
+
+	<script>
+const container = document.getElementById("container");
+const registerBtn = document.getElementById("register");
+
+const loginBtn = document.getElementById("login");
+
+registerBtn.addEventListener("click", () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener("click", () => {
+    container.classList.remove("active");
+});
+
+
+window.addEventListener('load', function() {
+    const popup = document.querySelector('.popup');
+    const overlay = document.querySelector('.overlay');
+
+    if (popup && popup.textContent.trim() !== '') {
+        popup.classList.add('show');
+        overlay.classList.add('show');
+        
+        setTimeout(() => {
+            popup.classList.remove('show');
+            overlay.classList.remove('show');
+        }, 3000);
+    }
+});
+
+
+</script>
+</body>
+</html>
+
