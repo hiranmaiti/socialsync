@@ -10,4 +10,10 @@ void createPost(Post post);
 	
 	List<Post> getAllPosts();
 
+	Post getPost(Long id);
+
+	void updatePost(Post post);
+
+	List<Post> fetchAllPosts();
+
 }

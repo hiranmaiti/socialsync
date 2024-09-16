@@ -12,7 +12,6 @@
 body {
   background-color: #f3f8ff;
   width: 100vw;
-  height: 100vh;
 }
 
 main {
@@ -139,4 +138,10 @@ input[type="submit"]:hover {
 .post-actions span {
   margin-top: 15px;
   font-size: 25px;
+}
+
+ul {
+	list-style-type: none;
+	text-decoration: none;
+	line-height: 1.7rem;
 }

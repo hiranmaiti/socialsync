@@ -11,14 +11,11 @@ public class NavigationController {
 		return "index";
 	}
 	
-	@GetMapping("/home")
-    public String homePage() {
-        return "home";
-    }
-	
 	@GetMapping("/createPost")
 	public String openCreatePost() {
 		return "createPost";
 	}
+	
+	
 
 }
