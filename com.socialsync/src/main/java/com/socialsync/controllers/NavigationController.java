@@ -16,6 +16,11 @@ public class NavigationController {
 		return "createPost";
 	}
 	
+	@GetMapping("/profilePage")
+	public String profilePage() {
+		return "profile";
+	}
+	
 	
 
 }

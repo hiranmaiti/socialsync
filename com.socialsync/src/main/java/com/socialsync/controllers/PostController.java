@@ -34,10 +34,10 @@ public class PostController {
 			e.printStackTrace();
 		}
 		
+		service.createPost(post);
+		
 		List<Post> allPosts = service.getAllPosts();
 	    model.addAttribute("allPosts", allPosts);
-
-		service.createPost(post);
 
 		return "home";
 	}
@@ -64,7 +64,7 @@ public class PostController {
 	@PostMapping("/addComment")
 	public String addComment(@RequestParam Long id, @RequestParam String comment, Model model) {
 	    // Your logic to add the comment
-	    Post post = service.getPost(id);  // Retrieve post by id
+	    Post post = service.getPost(id);
 	    List<String> comments = post.getComments();
 	    if (comments == null) {
 	        comments = new ArrayList<>();
@@ -76,7 +76,7 @@ public class PostController {
 	    List<Post> allPosts = service.fetchAllPosts();
 	    model.addAttribute("allPosts", allPosts);
 	    
-	    return "home";  // Return home page
+	    return "home";
 	}
 
 	

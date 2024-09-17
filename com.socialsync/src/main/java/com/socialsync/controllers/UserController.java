@@ -52,9 +52,12 @@ public class UserController {
 		    }
 	}
 	
-	@GetMapping("/profilePage")
-	public String profilePage() {
-		return "profile";
+	@PostMapping("/updateProfile")
+	public String updateProfile() {
+		return "home";
+		
 	}
+	
+	
 
 }
