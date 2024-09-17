@@ -20,7 +20,7 @@ main {
   width: 50%;
   height: 400px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 90px;
   background: linear-gradient(to right, #e2e2e2, #A1D6E2); /* Updated to include #A1D6E2 */
   color: black;
   border-radius: 6px;

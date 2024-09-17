@@ -20,6 +20,8 @@
 	padding: 10px;
 	font-size: 18px;
 	color: #f1f1f2; /* Updated to #F1F1F2 */
+	top:0;
+	position: fixed;
 }
 
 .tabs {

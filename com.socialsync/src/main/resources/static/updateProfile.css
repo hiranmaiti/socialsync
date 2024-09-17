@@ -18,7 +18,7 @@ body {
 
 main {
   width: 40%;
-  margin: 60px auto 0;
+  margin: 90px auto 0;
   padding: 10px;
   border-radius: 6px;
   background: linear-gradient(to right, #A1D6E2, #1995AD); /* Updated gradient colors */
