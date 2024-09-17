@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: #F1F1F2; /* Updated to #F1F1F2 */
+  background-color: #F1F1F2;
   font-size: 16px;
   font-weight: 500;
   color: black;
@@ -21,7 +21,7 @@ main {
   height: 400px;
   margin: auto;
   margin-top: 90px;
-  background: linear-gradient(to right, #e2e2e2, #A1D6E2); /* Updated to include #A1D6E2 */
+  background: linear-gradient(to right, #e2e2e2, #A1D6E2);
   color: black;
   border-radius: 6px;
 }
@@ -54,7 +54,7 @@ textarea {
   padding: 15px;
   border: 1px solid #ccc;
   font-size: 16px;
-  background-color: #F1F1F2; /* Updated to #F1F1F2 */
+  background-color: #F1F1F2;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: border 0.3s ease, box-shadow 0.3s ease;
   resize: vertical;
@@ -62,8 +62,8 @@ textarea {
 
 textarea:focus {
   outline: none;
-  border: 1px solid #1995AD; /* Updated to #1995AD */
-  box-shadow: 0 0 5px rgba(25, 149, 173, 0.5); /* Updated to match #1995AD */
+  border: 1px solid #1995AD;
+  box-shadow: 0 0 5px rgba(25, 149, 173, 0.5);
 }
 
 textarea::placeholder {
@@ -93,11 +93,11 @@ input[type="file"],
   width: fit-content;
   margin: auto;
   margin-left: 300px;
-  background-color: #1995AD; /* Updated to #1995AD */
-  color: #F1F1F2; /* Updated to #F1F1F2 */
+  background-color: #1995AD;
+  color: #F1F1F2;
 }
 
 #post-btn:hover {
-  background-color: #A1D6E2; /* Updated to #A1D6E2 */
-  color: #F1F1F2; /* Updated to #F1F1F2 */
+  background-color: #A1D6E2;
+  color: #F1F1F2;
 }

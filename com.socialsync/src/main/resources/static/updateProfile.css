@@ -10,8 +10,8 @@
 }
 
 body {
-  background-color: #F1F1F2; /* Updated to #F1F1F2 */
-  color: #000; /* Fix: Set to a visible color like black */
+  background-color: #F1F1F2;
+  color: #000;
   font-size: 16px;
   font-weight: 500;
 }
@@ -21,8 +21,8 @@ main {
   margin: 90px auto 0;
   padding: 10px;
   border-radius: 6px;
-  background: linear-gradient(to right, #A1D6E2, #1995AD); /* Updated gradient colors */
-  color: #000; /* Ensure text color is black for contrast */
+  background: linear-gradient(to right, #A1D6E2, #1995AD);
+  color: #000;
 }
 
 main div {
@@ -31,27 +31,27 @@ main div {
   border-radius: 6px;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  background-color: #F1F1F2; /* Updated background color to match palette */
+  background-color: #F1F1F2;
 }
 
 input, select, textarea {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #A1D6E2; /* Updated to #A1D6E2 */
-  background-color: #F1F1F2; /* Updated to #F1F1F2 */
+  border: 1px solid #A1D6E2;
+  background-color: #F1F1F2;
   font-size: 16px;
   outline: none;
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: #1995AD; /* Updated to #1995AD */
-  box-shadow: 0px 0px 5px rgba(25, 149, 173, 0.5); /* Updated to match #1995AD */
+  border-color: #1995AD;
+  box-shadow: 0px 0px 5px rgba(25, 149, 173, 0.5);
 }
 
 input[type="submit"] {
-  color: #F1F1F2; /* Updated to #F1F1F2 */
-  background-color: #1995AD; /* Updated to #1995AD */
+  color: #F1F1F2;
+  background-color: #1995AD;
   cursor: pointer;
   font-size: 16px;
   border: none;
@@ -59,23 +59,23 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #A1D6E2; /* Updated to #A1D6E2 */
+  background-color: #A1D6E2;
 }
 
 input[type="submit"]:active {
-  background-color: #1474A6; /* Slightly darker shade of #1995AD */
+  background-color: #1474A6;
 }
 
-/* Additional hover/focus effects for input fields */
+
 input:hover, select:hover, textarea:hover {
-  border-color: #1995AD; /* Updated to #1995AD */
+  border-color: #1995AD;
 }
 
 select {
-  padding: 10px; /* Increased padding for consistency */
+  padding: 10px;
 }
 
 textarea {
-  resize: vertical; /* Allow resizing vertically */
-  min-height: 100px; /* Minimum height for text area */
+  resize: vertical;
+  min-height: 100px;
 }
