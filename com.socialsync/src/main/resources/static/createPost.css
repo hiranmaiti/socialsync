@@ -10,7 +10,10 @@
 }
 
 body {
-  background-color: #f3f8ff;
+  background-color: #F1F1F2; /* Updated to #F1F1F2 */
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
 }
 
 main {
@@ -18,7 +21,8 @@ main {
   height: 400px;
   margin: auto;
   margin-top: 50px;
-  background-color: #7E30E1;
+  background: linear-gradient(to right, #e2e2e2, #A1D6E2); /* Updated to include #A1D6E2 */
+  color: black;
   border-radius: 6px;
 }
 
@@ -38,7 +42,7 @@ label {
   font-size: 18px;
   margin-left: 20px;
   font-weight: 500;
-  color: #F3F8FF;
+  color: black;
 }
 
 textarea {
@@ -50,7 +54,7 @@ textarea {
   padding: 15px;
   border: 1px solid #ccc;
   font-size: 16px;
-  background-color: #F3F8FF;
+  background-color: #F1F1F2; /* Updated to #F1F1F2 */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: border 0.3s ease, box-shadow 0.3s ease;
   resize: vertical;
@@ -58,8 +62,8 @@ textarea {
 
 textarea:focus {
   outline: none;
-  border: 1px solid #4CAF50;
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  border: 1px solid #1995AD; /* Updated to #1995AD */
+  box-shadow: 0 0 5px rgba(25, 149, 173, 0.5); /* Updated to match #1995AD */
 }
 
 textarea::placeholder {
@@ -67,11 +71,11 @@ textarea::placeholder {
   font-style: italic;
   opacity: 0.7;
 }
+
 textarea:hover {
   border-color: #999;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-
 
 input[type="file"],
 [type="submit"] {
@@ -79,7 +83,7 @@ input[type="file"],
   display: inline-block;
   padding: 10px 20px;
   cursor: pointer;
-  color: #F3F8FF;
+  color: black;
   border: none;
   border-radius: 5px;
   font-size: 16px;
@@ -89,11 +93,11 @@ input[type="file"],
   width: fit-content;
   margin: auto;
   margin-left: 300px;
-  background-color: #49108B;
+  background-color: #1995AD; /* Updated to #1995AD */
+  color: #F1F1F2; /* Updated to #F1F1F2 */
 }
 
-
 #post-btn:hover {
-  background-color: #E26EE5;
-  color: #F3F8FF;
+  background-color: #A1D6E2; /* Updated to #A1D6E2 */
+  color: #F1F1F2; /* Updated to #F1F1F2 */
 }

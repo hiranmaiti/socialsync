@@ -53,7 +53,8 @@ public class UserController {
 	}
 	
 	@PostMapping("/updateProfile")
-	public String updateProfile() {
+	public String updateProfile(@RequestParam String username) {
+		System.out.println(username);
 		return "home";
 		
 	}
