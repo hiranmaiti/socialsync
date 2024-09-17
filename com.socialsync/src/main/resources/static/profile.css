@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #f3f8ff;
+  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  width: 95vw;
+  height: 100vh;
+}
+
+.head-container {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  height: 200px;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+  position: relative;
+  border-radius: 4px;
+  background-image: url("./pexels-pixabay-326055.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.profile-pic {
+  width: 150px;
+  position: absolute;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  left: 20px;
+  bottom: -50px;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.body-container {
+  width: 80%;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: auto;
+  margin-top: 60px;
+  border-radius: 4px;
+  padding: 5px;
+
+  display: flex;
+}
+
+.body-container-sub {
+  width: 50%;
+}
+
+.profile {
+  margin-left: 5px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: fit-content;
+  border-radius: 4px;
+}
+
+.body-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-text {
+  margin-left: 5px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 90%;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  display: flex;
+  gap: 30px;
+}
+
+.profile-text:hover {
+  cursor: pointer;
+  background-color: #7e30e1;
+  color: #f3f8ff;
+}
+
+.left {
+  width: 30%;
+  border-right: 1px solid black;
+}
+
+.right {
+  width: 70%;
+}
+
+.profile-text-left {
+  margin-top: 10px;
+}
+
+.profile-text-left .right a {
+  color: black;
+}
+
+.edit-btn {
+  width: fit-content;
+  border-radius: 6px;
+  padding: 10px 20px;
+  background-color: #7e30e1;
+  color: #f3f8ff;
+
+  /* Align the button to the right */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto; /* This pushes the button to the right */
+}
+
+.edit-btn a {
+  color: #f3f8ff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.edit-btn i {
+  margin-right: 10px;
+}
+
+.edit-btn a:hover {
+  background-color: #e26ee5;
+}
+
+.edit-btn:hover {
+  background-color: #e26ee5;
+}
+
+
+.no-data-div {
+  width: 80%;
+  height: auto;
+  margin: auto;
+  margin-top: 60px;
+}
+
+#bio {
+  margin-left: 5px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 90%;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  display: flex;
+  gap: 30px;
+  transition: background-color 0.3s ease;
+}
+
+#bio:hover {
+  background-color: #7e30e1;
+  color: #f3f8ff;
+}
+
+#bio .left {
+  width: 30%;
+  border-right: 1px solid black;
+}
+
+#bio .right {
+  width: 70%;
+  word-wrap: break-word;
+}
+

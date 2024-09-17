@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/2a09458275.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" th:href="@{navbar.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{updateProfile.css}">
+  <title>SocialSync</title>
+</head>
+<body>
+  <nav>
+    <div class="navbar">
+      <div class="logo">
+        <a href="/homePage">SocialSync</a>
+      </div>
+      <div class="tabs">
+        <a href="/homePage">News Feed</a>
+        <a href="/createPost">Create Post</a>
+        <a href="/profilePage" id="profile-icon">
+          <i class="fa-regular fa-user"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <form action="/updateProfile" method="post" enctype="multipart/form-data">
+      <div>
+        <label for="username">Username: </label>
+        <input type="text" name="username" th:value="${user.username}" readonly>
+      </div>
+      <div>
+        <label for="name">Name: </label>
+        <input type="text" name="name" th:value="${user.name}">
+      </div>
+      <div>
+        <label for="email">Email: </label>
+        <input type="email" name="email" th:value="${user.email}">
+      </div>
+      <div>
+        <label for="dob">DOB: </label>
+        <input type="date" name="dob" th:value="${user.dob}">
+      </div>
+      <div>
+        <label for="gender">Gender: </label>
+        <select name="gender" id="gender">
+          <option th:value="Male" th:selected="${user.gender == 'Male'}">Male</option>
+          <option th:value="Female" th:selected="${user.gender == 'Female'}">Female</option>
+          <option th:value="Other" th:selected="${user.gender == 'Other'}">Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="city">City: </label>
+        <input type="text" name="city" th:value="${user.city}">
+      </div>
+      <div>
+        <label for="photo">Profile pic: </label>
+        <input type="file" name="photo" accept="image/*" class="photo" id="photo">
+      </div>
+      <div>
+        <label for="backgroundPhoto">Background image: </label>
+        <input type="file" name="backgroundPhoto" accept="image/*" class="backgroundPhoto" id="backgroundPhoto">
+      </div>
+
+      <!-- Additional Social Links -->
+      <div>
+        <label for="github">GitHub: </label>
+        <input type="url" name="github" th:value="${user.github}">
+      </div>
+      <div>
+        <label for="x">X (Twitter): </label>
+        <input type="url" name="x" th:value="${user.x}">
+      </div>
+      <div>
+        <label for="website">Website: </label>
+        <input type="url" name="website" th:value="${user.website}">
+      </div>
+
+      <div>
+        <input type="submit" value="Save changes">
+      </div>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f3f8ff;
+  color: #000; /* Fix: Set to a visible color like black */
+}
+
+main {
+  width: 60%;
+  margin: 60px auto 0;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #7e30e1;
+}
+
+main div {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #7e30e1;
+  box-shadow: 0px 0px 5px rgba(126, 48, 225, 0.5);
+}
+
+input[type="submit"] {
+  color: #f3f8ff;
+  background-color: #49108b;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #5b0fb2;
+}
+
+input[type="submit"]:active {
+  background-color: #3c0b7c;
+}
+
+/* Additional hover/focus effects for input fields */
+input:hover, select:hover, textarea:hover {
+  border-color: #7e30e1;
+}
+
+select {
+  padding: 10px; /* Increased padding for consistency */
+}
+
+textarea {
+  resize: vertical; /* Allow resizing vertically */
+  min-height: 100px; /* Minimum height for text area */
+}
