@@ -1,142 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/2a09458275.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" th:href="@{navbar.css}">
-  <link rel="stylesheet" type="text/css" th:href="@{profile.css}">
-  <title>SocialSync</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://kit.fontawesome.com/2a09458275.js"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" th:href="@{navbar.css}">
+<link rel="stylesheet" type="text/css" th:href="@{profile.css}">
+<title>SocialSync</title>
 </head>
 <body>
-  <nav>
-    <div class="navbar">
-      <div class="logo">
-        <a href="/homePage">SocialSync</a>
-      </div>
-      <div class="tabs">
-        <a href="/homePage">News Feed</a>
-        <a href="/createPost">Create Post</a>
-        <a href="/profilePage" id="profile-icon">
-          <i class="fa-regular fa-user"></i>Profile
-        </a>
-      </div>
-    </div>
-  </nav>
+	<nav>
+		<div class="navbar">
+			<div class="logo">
+				<a href="/homePage">SocialSync</a>
+			</div>
+			<div class="tabs">
+				<a href="/homePage">News Feed</a> <a href="/createPost">Create
+					Post</a> <a href="/profilePage" id="profile-icon"> <i
+					class="fa-regular fa-user"></i>Profile
+				</a>
+			</div>
+		</div>
+	</nav>
 
-  <div class="container" th:if="${user != null}">
-    <div class="head-container">
-      <div class="profile-pic">
-        <img th:if="${user.photoBase64}" th:src="'data:image/jpeg;base64,' + ${user.photoBase64}" alt="Profile Photo">
-      </div>
-    </div>
-    <div class="body-container">
-      <div class="body-container-sub" id="body-container-left">
-        <div class="profile" id="name">
-          <strong th:text="${user.name}"></strong><br>
-          <span th:text="${user.username}"></span>
-        </div>
-        <div class="body-text-container">
-          <div class="profile-text" id="email">
-            <div class="left">
-              <strong>Email:</strong>
-            </div>
-            <div class="right">
-              <span th:text="${user.email}"></span>
-            </div>
-          </div>
-          <div class="profile-text" id="dob">
-            <div class="left">
-              <strong>Date of Birth:</strong>
-            </div>
-            <div class="right">
-              <span th:text="${user.dob}"></span>
-            </div>
-          </div>
-          <div class="profile-text" id="gender">
-            <div class="left">
-              <strong>Gender:</strong>
-            </div>
-            <div class="right">
-              <span th:text="${user.gender}"></span>
-            </div>
-          </div>
-          <div class="profile-text" id="city">
-            <div class="left">
-              <strong>City:</strong>
-            </div>
-            <div class="right">
-              <span th:text="${user.city}"></span>
-            </div>
-          </div>
-          <!-- Bio Section -->
-          <div class="profile-text" id="bio">
-            <div class="left">
-              <strong>Bio:</strong>
-            </div>
-            <div class="right">
-              <span th:text="${user.bio}"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="body-container-sub" id="body-container-right">
-        <!-- LinkedIn -->
-        <div class="profile-text profile-text-left linkedin">
-          <div class="left">
-            <strong>LinkedIn:</strong>
-          </div>
-          <div class="right">
-            <a th:href="${user.linkedin}" target="_blank">
-              <span th:text="${user.linkedin}"></span>
-            </a>
-          </div>
-        </div>
+	<div class="container" th:if="${user != null}">
+		<div class="head-container">
+		<img th:if="${user.backgroundPhotoBase64}" th:src="'data:image/jpeg;base64,' + ${user.backgroundPhotoBase64}"
+					alt="ackground Photo">
+			<div class="profile-pic">
+				<img th:if="${user.photoBase64}"
+					th:src="'data:image/jpeg;base64,' + ${user.photoBase64}"
+					alt="Profile Photo">
+			</div>
+		</div>
 
-        <!-- GitHub -->
-        <div class="profile-text profile-text-left github">
-          <div class="left">
-            <strong>GitHub:</strong>
-          </div>
-          <div class="right">
-            <a th:href="${user.github}" target="_blank">
-              <span th:text="${user.github}"></span>
-            </a>
-          </div>
-        </div>
+		<div class="body-container">
+			<div class="body-container-sub" id="body-container-left">
+				<div class="profile" id="name">
+					<strong th:text="${user.name}"></strong><br> <span
+						th:text="${user.username}"></span>
+				</div>
+				<div class="body-text-container">
+					<div class="profile-text" id="email">
+						<div class="left">
+							<strong>Email:</strong>
+						</div>
+						<div class="right">
+							<span th:text="${user.email}"></span>
+						</div>
+					</div>
+					<div class="profile-text" id="dob">
+						<div class="left">
+							<strong>Date of Birth:</strong>
+						</div>
+						<div class="right">
+							<span th:text="${user.dob}"></span>
+						</div>
+					</div>
+					<div class="profile-text" id="gender">
+						<div class="left">
+							<strong>Gender:</strong>
+						</div>
+						<div class="right">
+							<span th:text="${user.gender}"></span>
+						</div>
+					</div>
+					<div class="profile-text" id="city">
+						<div class="left">
+							<strong>City:</strong>
+						</div>
+						<div class="right">
+							<span th:text="${user.city}"></span>
+						</div>
+					</div>
+					<!-- Bio Section -->
+					<div class="profile-text" id="bio">
+						<div class="left">
+							<strong>Bio:</strong>
+						</div>
+						<div class="right">
+							<span th:text="${user.bio}"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="body-container-sub" id="body-container-right">
+				<!-- LinkedIn -->
+				<div class="profile-text profile-text-left linkedin">
+					<div class="left">
+						<strong>LinkedIn:</strong>
+					</div>
+					<div class="right">
+						<a th:href="${user.linkedin}" target="_blank"> <span
+							th:text="${user.linkedin}"></span>
+						</a>
+					</div>
+				</div>
 
-        <!-- X (formerly Twitter) -->
-        <div class="profile-text profile-text-left x">
-          <div class="left">
-            <strong>X:</strong>
-          </div>
-          <div class="right">
-            <a th:href="${user.x}" target="_blank">
-              <span th:text="${user.x}"></span>
-            </a>
-          </div>
-        </div>
+				<!-- GitHub -->
+				<div class="profile-text profile-text-left github">
+					<div class="left">
+						<strong>GitHub:</strong>
+					</div>
+					<div class="right">
+						<a th:href="${user.github}" target="_blank"> <span
+							th:text="${user.github}"></span>
+						</a>
+					</div>
+				</div>
 
-        <!-- Personal Website -->
-        <div class="profile-text profile-text-left website">
-          <div class="left">
-            <strong>Website:</strong>
-          </div>
-          <div class="right">
-            <a th:href="${user.website}" target="_blank">
-              <span th:text="${user.website}"></span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="edit-btn">
-      <i class="fa-regular fa-pen-to-square"></i>
-      <a href="/updateProfile">Edit</a>
-    </div>
-  </div>
-  <div class="no-data-div" th:if="${user == null}">
-    No data available
-  </div>
+				<!-- X (formerly Twitter) -->
+				<div class="profile-text profile-text-left x">
+					<div class="left">
+						<strong>X:</strong>
+					</div>
+					<div class="right">
+						<a th:href="${user.x}" target="_blank"> <span
+							th:text="${user.x}"></span>
+						</a>
+					</div>
+				</div>
+
+				<!-- Personal Website -->
+				<div class="profile-text profile-text-left website">
+					<div class="left">
+						<strong>Website:</strong>
+					</div>
+					<div class="right">
+						<a th:href="${user.website}" target="_blank"> <span
+							th:text="${user.website}"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="edit-btn">
+			<i class="fa-regular fa-pen-to-square"></i> <a
+				href="/updateProfilePage">Edit</a>
+		</div>
+	</div>
+	<div class="no-data-div" th:if="${user == null}">No data
+		available</div>
 </body>
 </html>

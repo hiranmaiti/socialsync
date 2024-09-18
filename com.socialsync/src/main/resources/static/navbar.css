@@ -22,6 +22,7 @@
 	color: #f1f1f2;
 	top:0;
 	position: fixed;
+	z-index: 999;
 }
 
 .tabs {

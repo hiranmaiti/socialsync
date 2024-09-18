@@ -1,5 +1,8 @@
 package com.socialsync.controllers;
 
+
+
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.socialsync.entities.Post;
 import com.socialsync.entities.User;
 import com.socialsync.services.PostService;
 import com.socialsync.services.UserService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -39,10 +45,13 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public String validateUser(@RequestParam String username, @RequestParam String password, RedirectAttributes redirectAttributes, Model model ) {
+	public String validateUser(@RequestParam String username, @RequestParam String password,
+			RedirectAttributes redirectAttributes, Model model, HttpSession session) {
 		boolean status = service.validateUser(username, password);
 		 if (status) {
 		        redirectAttributes.addFlashAttribute("msg", "Login Successful!");
+		        session.setAttribute("username", username);
+		        model.addAttribute("session", session);
 		        List<Post> allPosts = postService.getAllPosts();
 			    model.addAttribute("allPosts", allPosts);
 		        return "redirect:/homePage";
@@ -52,12 +61,57 @@ public class UserController {
 		    }
 	}
 	
+	@GetMapping("/profilePage")
+	public String profilePage(HttpSession session, Model model) {
+		String username = (String) session.getAttribute("username");
+		User user = service.getUser(username);
+		model.addAttribute("user", user);
+		return "profile";
+	}
+	
 	@PostMapping("/updateProfile")
-	public String updateProfile(@RequestParam String username) {
-		System.out.println(username);
-		return "home";
+	public String updateProfile(@RequestParam String dob, @RequestParam String name,
+			@RequestParam String gender, @RequestParam String city, @RequestParam String bio, 
+			@RequestParam String linkedin, @RequestParam String github, @RequestParam String x, 
+			@RequestParam String website, @RequestParam MultipartFile photo, @RequestParam MultipartFile backgroundPhoto,
+			HttpSession session, Model model) {
+		String username = (String) session.getAttribute("username");
+		
+		User user = service.getUser(username);
+		
+		user.setDob(dob);
+		user.setCity(city);
+		user.setBio(bio);
+		user.setGithub(github);
+		user.setLinkedin(linkedin);
+		user.setX(x);
+		user.setWebsite(website);
+		user.setGender(gender);
+		
+		 if (!photo.isEmpty()) {
+		        try {                        
+		            user.setPhoto(photo.getBytes());
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		
+		if (!backgroundPhoto.isEmpty()) {
+		    try {
+		        user.setBackgroundPhoto(backgroundPhoto.getBytes());
+		    } catch (IOException e) {
+		        e.printStackTrace();
+		    }
+		}
+		service.updateUser(user);
+		model.addAttribute("user", user);
+		
+		return "profile";
 		
 	}
+
+	
+	
 	
 	
 

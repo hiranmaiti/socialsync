@@ -37,4 +37,17 @@ public class UserServiceImplementation implements UserService {
 		return false;
 	}
 
+	
+	public User getUser(String username) {
+		// TODO Auto-generated method stub
+		return repo.findByUsername(username);
+	}
+
+	
+	public void updateUser(User user) {
+		// TODO Auto-generated method stub
+		repo.save(user);
+		
+	}
+
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SocialSync</title>
+    <script
+      src="https://kit.fontawesome.com/2a09458275.js"
+      crossorigin="anonymous"
+    ></script>
+   <link rel="stylesheet" type="text/css" th:href="@{findEmail.css}">
+  </head>
+  <body>
+    <main class="container">
+      <h3>Verify your email</h3>
+      <form action="">
+        <div>
+          <label for="">Enter your email: </label
+          ><input
+            type="email"
+            name="email"
+            class="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div>
+          <input type="submit" value="Confirm" class="confirm" id="confirm" />
+        </div>
+      </form>
+    </main>
+    <div class="home">
+      <a href=""><i class="fa-solid fa-house"></i>Home</a>
+    </div>
+  </body>
+</html>

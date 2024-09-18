@@ -44,12 +44,13 @@ public class User {
 	@Column(columnDefinition = "LONGBLOB")
 	private byte[] backgroundPhoto;
 	
-	public String getbackgroundPhotoBase64() {
-		if (photo == null) {
-			return null;
-		}
-		return Base64.getEncoder().encodeToString(backgroundPhoto);
+	public String getBackgroundPhotoBase64() {
+	    if (backgroundPhoto == null) {
+	        return null;
+	    }
+	    return Base64.getEncoder().encodeToString(backgroundPhoto);
 	}
+
 	
 	@OneToMany
 	private List<Post> posts;
@@ -59,6 +60,7 @@ public class User {
 	private String github;
 	private String x;
 	private String website;
+	private String city;
 
 	public User() {
 		super();
@@ -67,7 +69,7 @@ public class User {
 
 	public User(Long id, String username, String name, String email, String password, String dob, String gender,
 			byte[] photo, byte[] backgroundPhoto, List<Post> posts, String bio, String linkedin, String github,
-			String x, String website) {
+			String x, String website, String city) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -84,6 +86,7 @@ public class User {
 		this.github = github;
 		this.x = x;
 		this.website = website;
+		this.city = city;
 	}
 
 	public Long getId() {
@@ -205,14 +208,25 @@ public class User {
 	public void setWebsite(String website) {
 		this.website = website;
 	}
+	
+	public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", name=" + name + ", email=" + email + ", password="
 				+ password + ", dob=" + dob + ", gender=" + gender + ", photo=" + Arrays.toString(photo)
 				+ ", backgroundPhoto=" + Arrays.toString(backgroundPhoto) + ", posts=" + posts + ", bio=" + bio
-				+ ", linkedin=" + linkedin + ", github=" + github + ", x=" + x + ", website=" + website + "]";
+				+ ", linkedin=" + linkedin + ", github=" + github + ", x=" + x + ", website=" + website + ", city="
+				+ city + "]";
 	}
+
+	
 
 	
 

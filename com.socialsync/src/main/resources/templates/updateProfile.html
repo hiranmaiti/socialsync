@@ -42,13 +42,11 @@
         <label for="dob">DOB: </label>
         <input type="date" name="dob" th:value="${user.dob}">
       </div>
-      <div>
-        <label for="gender">Gender: </label>
-        <select name="gender" id="gender">
-          <option th:value="Male" th:selected="${user.gender == 'Male'}">Male</option>
-          <option th:value="Female" th:selected="${user.gender == 'Female'}">Female</option>
-          <option th:value="Other" th:selected="${user.gender == 'Other'}">Other</option>
-        </select>
+      <div class="gender">
+        <label>Gender: </label>
+			<label>Male: </label><input type = "radio" name = "gender" value = "Male">
+			<label>Female: </label><input type = "radio" name = "gender" value = "Female">
+			<label>Other: </label><input type = "radio" name = "gender" value = "Other">
       </div>
       <div>
         <label for="city">City: </label>
@@ -76,7 +74,14 @@
         <label for="website">Website: </label>
         <input type="url" name="website" th:value="${user.website}">
       </div>
-
+      <div>
+        <label for="linkedin">Linkedin: </label>
+        <input type="url" name="linkedin" th:value="${user.linkedin}">
+      </div>
+<div>
+        <label for="bio">Bio: </label>
+        <textarea name="bio" th:value="${user.bio}"></textarea>
+      </div>
       <div>
         <input type="submit" value="Save changes">
       </div>

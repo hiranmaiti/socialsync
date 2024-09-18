@@ -24,8 +24,10 @@
         </div>
       </div>
     </nav>
-
     <main>
+    <div style="display: flex;">
+    <h3>Welcome{th:text="${session.username}" </h3><h3 th:text="${session.username}"></h3>
+    </div>
     <div class="main">
       <div class="post-container" th:each="post : ${allPosts}">
         <div class="post-content">
