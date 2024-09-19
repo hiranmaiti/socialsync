@@ -12,6 +12,7 @@ public class UserServiceImplementation implements UserService {
 	@Autowired
 	UserRepository repo;
 	
+	@Override
 	public boolean userExists(String username, String email) {
 		User u1= repo.findByEmail(email);
 		User u2 = repo.findByUsername(username);
@@ -20,30 +21,30 @@ public class UserServiceImplementation implements UserService {
 		}
 		return false;
 	}
-	
+	@Override
 	public void addUser(User user) {
 		// TODO Auto-generated method stub
 		repo.save(user);	
 	}
 
 	
-	public boolean validateUser(String username, String password) {
-		// TODO Auto-generated method stub
-		
-		String dbPassword = repo.findByUsername(username).getPassword();
-		if ( password.equals(dbPassword) ) {
-			return true;
-		}
-		return false;
-	}
+	@Override
+    public boolean validateUser(String username, String password) {
+        User user = repo.findByUsername(username);
+        if (user != null) {
+            String dbPassword = user.getPassword();
+            return password.equals(dbPassword);
+        }
+        return false;
+    }
 
-	
+	@Override
 	public User getUser(String username) {
 		// TODO Auto-generated method stub
 		return repo.findByUsername(username);
 	}
 
-	
+	@Override
 	public void updateUser(User user) {
 		// TODO Auto-generated method stub
 		repo.save(user);

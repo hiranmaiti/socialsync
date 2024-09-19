@@ -1,7 +1,5 @@
 package com.socialsync.controllers;
 
-
-
 import java.io.IOException;
 import java.util.List;
 
@@ -64,6 +62,7 @@ public class UserController {
 	@GetMapping("/profilePage")
 	public String profilePage(HttpSession session, Model model) {
 		String username = (String) session.getAttribute("username");
+//		String name = (String) session.getAttribute("name");
 		User user = service.getUser(username);
 		model.addAttribute("user", user);
 		return "profile";
@@ -73,7 +72,7 @@ public class UserController {
 	public String updateProfile(@RequestParam String dob, @RequestParam String name,
 			@RequestParam String gender, @RequestParam String city, @RequestParam String bio, 
 			@RequestParam String linkedin, @RequestParam String github, @RequestParam String x, 
-			@RequestParam String website, @RequestParam MultipartFile photo, @RequestParam MultipartFile backgroundPhoto,
+			@RequestParam String website, @RequestParam String grade, @RequestParam String occupation, @RequestParam MultipartFile photo, @RequestParam MultipartFile backgroundPhoto,
 			HttpSession session, Model model) {
 		String username = (String) session.getAttribute("username");
 		
@@ -87,6 +86,9 @@ public class UserController {
 		user.setX(x);
 		user.setWebsite(website);
 		user.setGender(gender);
+		user.setGrade(grade);
+		user.setOccupation(occupation);
+		
 		
 		 if (!photo.isEmpty()) {
 		        try {                        
@@ -109,7 +111,6 @@ public class UserController {
 		return "profile";
 		
 	}
-
 	
 	
 	

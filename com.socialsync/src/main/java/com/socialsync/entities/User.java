@@ -61,15 +61,19 @@ public class User {
 	private String x;
 	private String website;
 	private String city;
+	private String grade;
+	private String occupation;
 
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public User(Long id, String username, String name, String email, String password, String dob, String gender,
 			byte[] photo, byte[] backgroundPhoto, List<Post> posts, String bio, String linkedin, String github,
-			String x, String website, String city) {
+			String x, String website, String city, String grade, String occupation) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -87,7 +91,11 @@ public class User {
 		this.x = x;
 		this.website = website;
 		this.city = city;
+		this.grade = grade;
+		this.occupation = occupation;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -216,6 +224,32 @@ public class User {
     public void setCity(String city) {
         this.city = city;
     }
+    
+    
+
+	public String getGrade() {
+		return grade;
+	}
+
+
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
+
+
+	public String getOccupation() {
+		return occupation;
+	}
+
+
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
+
 
 	@Override
 	public String toString() {
@@ -223,8 +257,12 @@ public class User {
 				+ password + ", dob=" + dob + ", gender=" + gender + ", photo=" + Arrays.toString(photo)
 				+ ", backgroundPhoto=" + Arrays.toString(backgroundPhoto) + ", posts=" + posts + ", bio=" + bio
 				+ ", linkedin=" + linkedin + ", github=" + github + ", x=" + x + ", website=" + website + ", city="
-				+ city + "]";
+				+ city + ", grade=" + grade + ", occupation=" + occupation + "]";
 	}
+
+
+
+	
 
 	
 

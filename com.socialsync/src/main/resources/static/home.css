@@ -1,150 +1,233 @@
 @charset "UTF-8";
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import
+	url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap")
+	;
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat", sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Montserrat", sans-serif;
 }
 
 body {
-  background-color: #F1F1F2; /* Updated to #F1F1F2 */
-  width: 100vw;
-  font-size: 16px;
-  font-weight: 500;
+	background-color: #F1F1F2; /* Updated to #F1F1F2 */
+	width: 100vw;
+	font-size: 16px;
+	font-weight: 500;
 }
 
-main {
-  width: 50%;
-  margin: auto;
-  margin-top: 90px;
-  padding: 30px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  border-radius: 6px;
-  background-color: #A1D6E2; /* Updated to #A1D6E2 */
+.welcome-text {
+	margin-top: 90px;
+	width: fit-content;
+	padding: 30px 90px 30px 30px;
+	border: 1px solid #e5e7eb;
+	border-radius: 6px;
+	background-color: #e5e7eb;
+	margin-left: 40px;
+	font-size: 36px !important;
+	font-weight: 700;
+	margin-bottom: 0;
+}
+
+.welcome-text-sub-2 {
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.main {
+	width: 95%;
+	margin: auto;
+	margin-top: 30px;
+	padding: 30px;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	border-radius: 6px;
+	background-color: #A1D6E2;
+	display: grid; grid-template-columns : 1fr 1fr;
+	/* Create two equal-width columns */ grid-template-rows : repeat(
+	auto-fit, minmax( 200px, 1fr));
+	gap: 20px;
+	grid-template-columns: 1fr 1fr; /* Create two equal-width columns */
+	grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+	/* Space between columns */
+}
+
+.post-container {
+	border: 1px solid #ddd; /* Border around each post */
+	padding: 20px;
+	border-radius: 6px; /* Rounded corners */
+	overflow: hidden; /* Ensures children don't overflow */
+	background-color: #fff; /* Background color for posts */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	/* Shadow for better appearance */
+	/* Adjust gap value to control spacing between posts */
+	height: 100%;
+	gap: 10px;
+}
+
+.post-content {
+	padding: 10px; /* Padding inside each post */
 }
 
 #caption {
-  width: 100%;
-  display: flex;
-  height: fit-content;
-  padding: 10px;
-  gap: 5px;
+	width: 100%;
+	display: flex;
+	height: fit-content;
+	padding: 10px;
+	font-size: 14px;
+	font-weight: 150px;
+	gap: 5px;
 }
 
 #post-img {
-  max-width: 80%;
-  margin: auto;
-  margin-top: 10px;
-  max-height: fit-content;
-  border-radius: 6px;
+	max-width: 100%;
+	margin: auto;
+	margin-top: 10px;
+	max-height: fit-content;
+	border-radius: 6px;
 }
 
 img {
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
 }
 
 .like-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  font-size: 25px;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	font-size: 25px;
 }
 
 .like-button i {
-  color: #1995AD; /* Updated to #1995AD */
+	color: #1995AD;
 }
 
 .like-button:hover i {
-  color: #007bff;
+	color: #007bff;
 }
 
 .comment-form {
-  width: 100%;
-  padding: 10px;
+	width: 100%;
+	padding: 10px;
 }
 
 input[type="text"] {
-  width: 80%;
-  margin: auto;
-  margin-left: 20px;
-  border-radius: 6px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  background-color: #F1F1F2; /* Updated to #F1F1F2 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: border 0.3s ease, box-shadow 0.3s ease;
-  resize: vertical;
+	width: 80%;
+	margin: auto;
+	margin-left: 20px;
+	border-radius: 6px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+	background-color: #F1F1F2; /* Updated to #F1F1F2 */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: border 0.3s ease, box-shadow 0.3s ease;
+	resize: vertical;
 }
 
 input[type="text"]:focus {
-  outline: none;
-  border: 1px solid #1995AD; /* Updated to #1995AD */
-  box-shadow: 0 0 5px rgba(25, 149, 173, 0.5); /* Updated to match #1995AD */
+	outline: none;
+	border: 1px solid #1995AD; /* Updated to #1995AD */
+	box-shadow: 0 0 5px rgba(25, 149, 173, 0.5);
+	/* Updated to match #1995AD */
 }
 
 input[type="text"]::placeholder {
-  color: #888;
-  font-style: italic;
-  opacity: 0.7;
+	color: #888;
+	font-style: italic;
+	opacity: 0.7;
 }
 
 input[type="text"]:hover {
-  border-color: #999;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+	border-color: #999;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 input[type="submit"] {
-  padding: 10px;
-  display: inline-block;
-  padding: 10px 20px;
-  cursor: pointer;
-  color: #F1F1F2; /* Updated to #F1F1F2 */
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  width: fit-content;
-  margin: auto;
-  margin-left: 5px;
-  background-color: #1995AD; /* Updated to #1995AD */
+	padding: 10px;
+	display: inline-block;
+	padding: 10px 20px;
+	cursor: pointer;
+	color: #F1F1F2; /* Updated to #F1F1F2 */
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	width: fit-content;
+	margin: auto;
+	margin-left: 5px;
+	background-color: #1995AD; /* Updated to #1995AD */
 }
 
 input[type="submit"]:hover {
-  background-color: #A1D6E2; /* Updated to #A1D6E2 */
-  color: #F1F1F2; /* Updated to #F1F1F2 */
+	background-color: #A1D6E2; /* Updated to #A1D6E2 */
+	color: #F1F1F2; /* Updated to #F1F1F2 */
 }
 
 .comment-section {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  height: fit-content;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+	width: 100%;
+	margin-top: 10px;
+	padding: 10px;
+	height: fit-content;
 }
 
 .fa-comment {
-  font-size: 25px;
-  color: #1995AD; /* Updated to #1995AD */
+	font-size: 25px;
+	color: #1995AD; /* Updated to #1995AD */
 }
 
 .post-actions {
-  display: flex;
-  gap: 10px;
+	display: flex;
+	gap: 10px;
 }
 
 .post-actions span {
-  margin-top: 15px;
-  font-size: 20px;
+	margin-top: 15px;
+	font-size: 20px;
 }
 
 ul {
-  list-style-type: none;
-  text-decoration: none;
-  line-height: 1.7rem;
+	list-style-type: none;
+	text-decoration: none;
+	line-height: 1.7rem;
+}
+
+
+.post-image {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.post-image-profile {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.post-head {
+	display: flex;
+	width: fit-content;
+	padding : 5px;
+	gap: 10px;
+}
+
+.post-name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+}
+
+.post-user-profile:hover {
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+}
+
+.post-user-profile {
+	color: black;
 }

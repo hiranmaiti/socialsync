@@ -34,6 +34,12 @@ public class NavigationController {
 		return "/updateProfile";
 	}
 	
+	@GetMapping("/findEmailPage")
+	public String findEmailPage() {
+		return "findEmail";
+	}
+	
+	
 	
 
 }

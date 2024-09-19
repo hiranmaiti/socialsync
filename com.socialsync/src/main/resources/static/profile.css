@@ -19,7 +19,7 @@ body {
 
 .head-container {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  height: 200px;
+  height: 250px;
   width: 80%;
   margin: auto;
   margin-top: 90px;
@@ -37,9 +37,9 @@ body {
 }
 
 .profile-pic {
-  width: 150px;
+  width: 180px;
   position: absolute;
-  height: 150px;
+  height: 180px;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   left: 20px;
@@ -53,19 +53,26 @@ body {
 }
 
 .body-container {
-  width: 80%;
+  width: 100%;
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background: linear-gradient(to right, #e2e2e2, #A1D6E2);
   margin: auto;
-  margin-top: 60px;
+  margin-top: 10px;
   border-radius: 4px;
   padding: 5px;
   display: flex;
 }
 
+.main {
+	width:80%;
+	margin: auto;
+}
+
+
 .body-container-sub {
   width: 50%;
+  margin-top: 30px;
 }
 
 .profile {
@@ -116,9 +123,9 @@ body {
 .profile-text-left .right a {
   color: #1995AD;
 }
-
 .edit-btn {
   width: fit-content;
+  display: block !important;
   border-radius: 6px;
   padding: 10px 20px;
   background-color: #1995AD;
