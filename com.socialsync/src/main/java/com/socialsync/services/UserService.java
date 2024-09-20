@@ -13,4 +13,7 @@ boolean userExists(String username, String email);
 	User getUser(String username);
 
 	void updateUser(User user);
+
+	void updatePassword(String username, String newPassword);
+
 }

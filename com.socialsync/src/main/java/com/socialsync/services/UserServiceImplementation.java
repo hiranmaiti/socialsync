@@ -50,5 +50,17 @@ public class UserServiceImplementation implements UserService {
 		repo.save(user);
 		
 	}
+	@Override
+	public void updatePassword(String username, String newPassword) {
+        // Fetch the user by username
+        User user = repo.findByUsername(username);
+
+        if (user != null) {
+            // Set the new password
+            user.setPassword(newPassword);
+            // Save the updated user back to the database
+            repo.save(user);
+        }
+    }
 
 }

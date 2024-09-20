@@ -19,8 +19,8 @@
 				<a href="/homePage">News Feed</a> <a href="/createPost">Create
 					Post</a> <a href="/profilePage" id="profile-icon"> <i
 					class="fa-regular fa-user"></i>Profile
-				</a>
-				<a href="#" id="logout"><i class="fa-solid fa-right-from-bracket"></i>Logout </a>
+				</a> <a href="/logout" id="logout"><i
+					class="fa-solid fa-right-from-bracket"></i>Logout </a>
 			</div>
 		</div>
 	</nav>
@@ -88,8 +88,8 @@
 					</div>
 				</div>
 				<div class="body-container-sub" id="body-container-right">
-				
-				<div class="profile-text profile-text-left grade">
+
+					<div class="profile-text profile-text-left grade">
 						<div class="left">
 							<strong>Grade:</strong>
 						</div>
@@ -97,8 +97,8 @@
 							<span th:text="${user.grade}"></span>
 						</div>
 					</div>
-				
-				<div class="profile-text profile-text-left occupation">
+
+					<div class="profile-text profile-text-left occupation">
 						<div class="left">
 							<strong>Occupation:</strong>
 						</div>
@@ -153,16 +153,111 @@
 							</a>
 						</div>
 					</div>
+
+					<div class="profile-text profile-text-left edit-btn">
+
+						<div>
+							<i class="fa-regular fa-pen-to-square"></i> <a
+								href="/updateProfilePage">Edit</a>
+						</div>
+					</div>
+
+					<div class="profile-text profile-text-left edit-btn">
+
+						<div>
+							<a href="/updatePasswordPage">Change password</a>
+						</div>
+					</div>
 				</div>
 
 			</div>
-			<div class="edit-btn">
-				<i class="fa-regular fa-pen-to-square"></i> <a
-					href="/updateProfilePage">Edit</a>
-			</div>
+
+
+
 		</div>
 
+		<div class="main-post">
+			<div class="post-container" th:each="post : ${myPosts}">
+				<div class="post-content">
+					<div class="post-head">
+						<div class="post-image">
+							<!-- Check if post.user and post.user.photoBase64 exist -->
+							<a th:href="@{/viewProfile(username=${post.user.username})}"
+								class="post-user-profile"> <img class="post-image-profile"
+								th:if="${post.user != null && post.user.photoBase64 != null}"
+								th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}"
+								alt="User Photo" />
+							</a>
+						</div>
+						<div class="post-name">
+
+							<p th:if="${post.user != null}">
+								<a th:href="@{/viewProfile(username=${post.user.username})}"
+									class="post-user-profile"> <span
+									th:text="${post.user.name}"></span><br> <span
+									th:text="${post.user.occupation}"
+									style="font-weight: 300; font-size: 16px; margin-left: 5px;"></span>
+								</a>
+							</p>
+
+						</div>
+					</div>
+					<div id="caption">
+						<p>
+							<span th:text="${post.caption}"></span>
+						</p>
+					</div>
+					<div id="post-img">
+						<!-- Check if post.photoBase64 exists -->
+						<img th:if="${post.photoBase64 != null}"
+							th:src="'data:image/jpeg;base64,' + ${post.photoBase64}"
+							alt="Post Photo" />
+					</div>
+				</div>
+				<div class="post-actions">
+					<form action="/likePost">
+						<input type="hidden" name="id" th:value="${post.id}" />
+						<button class="like-button">
+							<i class="fa-regular fa-thumbs-up"></i>
+						</button>
+					</form>
+					<span class="like-count" th:text="${post.likes}"></span> <span>likes</span>
+				</div>
+				<div class="comment-form">
+					<form action="/addComment" method="post">
+						<input type="hidden" name="id" th:value="${post.id}" /> <input
+							type="text" name="comment" placeholder="Add a comment..." /> <input
+							type="submit" value="Post" />
+					</form>
+				</div>
+				<div class="comment-section">
+					<i class="fa-regular fa-comment"></i>
+
+					<div th:if="${post.comments != null}">
+						<div th:each="comment : ${post.comments}">
+							<ul>
+								<li th:text="${comment}"></li>
+							</ul>
+						</div>
+					</div>
+
+					<div th:if="${post.comments == null}">
+						<p>No comments yet</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+
 	</div>
+
+
+
 	<div class="no-data-div" th:if="${user == null}">No data
 		available</div>
 </body>
