@@ -65,6 +65,9 @@ public class NavigationController {
 	@GetMapping("/findEmailPage")
 	public String findEmailPage(HttpSession session) {
 		if (session.getAttribute("username") != null) {
+			String username = (String) session.getAttribute("username");
+			User user = service.getUser(username);
+			System.out.println(username);
 		return "findEmail";
 		} else {
 			return "index";

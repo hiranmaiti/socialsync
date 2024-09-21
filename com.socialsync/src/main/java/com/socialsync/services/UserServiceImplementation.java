@@ -62,5 +62,47 @@ public class UserServiceImplementation implements UserService {
             repo.save(user);
         }
     }
+	@Override
+	public User findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return repo.findByUsername(username);
+	}
+	@Override
+	public boolean verifyEmail(String username, String email) {
+		// TODO Auto-generated method stub
+		if (usernameExists(username)) {
+			User user = repo.findByUsername(username);
+			String dbEmail = user.getEmail();
+			if ( email.equals(dbEmail) ) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		return false;
+	}
+	@Override
+	public boolean usernameExists(String username) {
+		// TODO Auto-generated method stub
+		User user = repo.findByUsername(username);
+		if ( user != null ) {
+			return true;
+		}
+		return false;
+	}
+	@Override
+	public void resetPassword(String username, String newPassword) {
+		// TODO Auto-generated method stub
+		
+		if (usernameExists(username)) {
+	        User user = repo.findByUsername(username);
+	        System.out.println("User found: " + user.getUsername());
+	        user.setPassword(newPassword);
+	        repo.save(user);
+	    } else {
+	        System.out.println("User not found");
+	    }
+		
+	}
 
 }

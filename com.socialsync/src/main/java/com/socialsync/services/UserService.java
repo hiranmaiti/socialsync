@@ -16,4 +16,12 @@ boolean userExists(String username, String email);
 
 	void updatePassword(String username, String newPassword);
 
+	User findByUsername(String username);
+	
+	boolean usernameExists(String username);
+
+	boolean verifyEmail(String username, String email);
+
+	void resetPassword(String username, String newPassword);
+
 }

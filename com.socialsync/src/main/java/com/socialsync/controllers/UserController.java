@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -54,6 +55,7 @@ public class UserController {
 			model.addAttribute("allPosts", allPosts);
 			return "redirect:/homePage";
 		} else {
+			session.setAttribute("username", username);
 			redirectAttributes.addFlashAttribute("msg", "Invalid credentials! Please try again.");
 			return "redirect:/";
 		}
@@ -102,6 +104,20 @@ public class UserController {
 
 	}
 
+	@GetMapping("/viewProfile")
+	public String viewProfile(@RequestParam("username") String username, Model model, HttpSession session) {
+	    User user = service.getUser(username);
+
+	    model.addAttribute("user", user);
+	    model.addAttribute("posts", user.getPosts());
+
+	    return "viewProfile";
+	
+	
+	
+
+	}
+
 	@PostMapping("/changePassword")
 	public String changePassword(@RequestParam String oldPassword, @RequestParam String newPassword,
 			@RequestParam String confirmPassword, HttpSession session, RedirectAttributes redirectAttributes) {
@@ -118,6 +134,44 @@ public class UserController {
 			}
 		} else {
 			return "changePassword";
+		}
+	}
+	
+	
+	
+	@PostMapping("/verifyEmail")
+	public String verifyEmail(HttpSession session, @RequestParam String email, Model model) {
+		if (session.getAttribute("username") != null) {
+			String username = (String) session.getAttribute("username");
+			User user = service.getUser(username);
+			boolean status = service.verifyEmail(username, email);
+			if (status == true) {
+				 model.addAttribute("username", username);
+				return "resetPassword";
+			} else {
+				return "login";
+			}
+		} else {
+			return "index";
+		}
+	}
+	
+	
+	@PostMapping("/resetPassword")
+	public String resetPassword(HttpSession session, @RequestParam String newPassword, @RequestParam String confirmPassword, Model model) {
+		
+		if (session.getAttribute("username") != null) {
+			String username = (String) session.getAttribute("username");
+			User user = service.getUser(username);
+			if (newPassword.equals(confirmPassword)) {
+		        service.resetPassword(username, newPassword);
+		        return "index";
+		    } else {
+		        System.out.println("Password do not match");
+		        return "resetPassword";
+		    }
+		} else {
+			return "index";
 		}
 	}
 

@@ -36,9 +36,8 @@
 				<div class="post-content">
 					<div class="post-head">
 						<div class="post-image">
-							<!-- Check if post.user and post.user.photoBase64 exist -->
-							<a th:href="@{/viewProfile(username=${post.user.username})}"
-								class="post-user-profile"> <img class="post-image-profile"
+								<a th:href="@{/viewProfile(username=${post.user.username})}" class="post-user-profile"> 
+								<img class="post-image-profile"
 								th:if="${post.user != null && post.user.photoBase64 != null}"
 								th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}"
 								alt="User Photo" />
@@ -47,8 +46,7 @@
 						<div class="post-name">
 
 							<p th:if="${post.user != null}">
-								<a th:href="@{/viewProfile(username=${post.user.username})}"
-									class="post-user-profile"> <span
+								<a th:href="@{/viewProfile(username=${post.user.username})}" class="post-user-profile">  <span
 									th:text="${post.user.name}"></span><br>
 									<span
 									th:text="${post.user.occupation}" style="font-weight: 300; font-size: 16px; margin-left: 5px;"></span>

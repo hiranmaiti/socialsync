@@ -98,17 +98,4 @@ public class PostController {
 		return "home";
 	}
 	
-	@GetMapping("/viewProfile")
-	public String viewProfile(@RequestParam("username") String username, Model model, HttpSession session) {
-	    User user = userService.getUser(username);
-
-	    model.addAttribute("user", user);
-	    model.addAttribute("posts", user.getPosts());
-
-	    return "viewProfile";
-	
-	
-	
-
-	}
 }
